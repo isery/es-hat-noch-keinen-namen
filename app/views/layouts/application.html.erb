@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vienname</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "http://code.jquery.com/ui/1.9.2/jquery-ui.js" %>
+  <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+                (function (window, undefined) {
+                    var History = window.History;
+                    if (!History.enabled) {
+                        // This is because we can optionally choose to support HTML4 browsers or not.
+                        return false;
+                    }
+                    // Bind to StateChange Event
+                    History.Adapter.bind(window, 'statechange', function () {
+                        var State = History.getState();
+                    });
+
+                })(window);
+
+                function clickSubmit() {
+                    $('#submit1').click();
+                }
+
+                var id = $('input[name=category]:checked').attr("class");
+                $("#" + id).addClass("sel");
+
+                var letter = $('input[name=start_letter]:checked').attr("class");
+                $("#" + letter).addClass("sel");
+
+                $("#slider-range").slider({
+                    range :true,
+                    min   :2000,
+                    max   :2011,
+                    values:[ 2000, 2011 ],
+                    slide :function (event, ui) {
+                        $("#amount").val("von: " + ui.values[ 0 ] + " bis: " + ui.values[ 1 ]);
+                        $("#start_year").val(ui.values[ 0 ]);
+                        $("#end_year").val(ui.values[ 1 ]);
+                    },
+                    change:function (event, ui) {
+                        if (event.originalEvent) {
+                            clickSubmit();
+                        }
+                    }
+                });
+
+                $("#amount").val("von: " + $("#start_year").val() +
+                        " bis: " + $("#end_year").val());
+
+                $("#slider-range").slider("option", "values", [$("#start_year").val() , $("#end_year").val() ]);
+
+                $("#slider-range-buchstabe").slider({
+                    range :true,
+                    min   :3,
+                    max   :10,
+                    values:[ 3, 10 ],
+                    slide :function (event, ui) {
+                        $("#buchstabenAnzahl").val("von: " + ui.values[ 0 ] + " bis: " + ui.values[ 1 ]);
+                        $("#lower_count").val(ui.values[ 0 ]);
+                        $("#upper_count").val(ui.values[ 1 ]);
+                    },
+                    change:function (event, ui) {
+                        if (event.originalEvent) {
+                            clickSubmit();
+                        }
+                    }
+                });
+
+
+                $("#buchstabenAnzahl").val("von: " + $("#lower_count").val() +
+                        " bis: " + $("#upper_count").val());
+                $("#slider-range-buchstabe").slider("option", "values", [$("#lower_count").val() , $("#upper_count").val() ]);
+
+                $("#catlinks > a").on("click", function (e) {
+                    e.preventDefault();
+
+                    var rid = $(this).attr('id');
+                    $('input[type=radio][name=category]').prop('checked', false);
+                    $("#catlinks > a.sel").removeClass("sel");
+                    $(this).addClass("sel");
+                    $('input:radio[class="' + rid + '"]').prop('checked', true);
+                    clickSubmit();
+                });
+
+                $("#temp > a").on("click", function (e) {
+                    e.preventDefault();
+                    var letter = $(this).attr('id');
+                    $('input[type=radio][name=start_letter]').prop('checked', false);
+                    $("#temp > a.sel").removeClass("sel");
+                    $(this).addClass("sel");
+                    $('input:radio[class="' + letter + '"]').prop('checked', true);
+                    clickSubmit();
+                });
+
+                $("#teilen > #share > a").on("click", function (e) {
+                    e.preventDefault();
+                    var link = $(this).attr('id');
+                    var img = $(this).attr('class');
+
+                    var d, component = '';
+                    u = location.href;
+                    t = document.title;
+
+                    if (img) {
+                        d = 'Vienname is the way to go!';
+                        component = '&media=' + encodeURIComponent(img)
+                                + '&description=' + d;
+                    }
+                    console.log(link);
+                    window.open(link + encodeURIComponent(u) + component,
+                            'sharer', 'toolbar=0,status=0,width=626, height = 436');
+                });
+
+
+            }
+    )
+    ;
+</script>
+<%= render :partial => "/shared/chart" %>
+</html>

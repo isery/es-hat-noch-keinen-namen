@@ -14,3 +14,10 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+/public/index.html
+workspace.xml
+/.idea
+config/database.yml
+config/deploy.rb
+Capfile
+secret_token.rb

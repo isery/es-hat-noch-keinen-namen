@@ -1,0 +1,54 @@
+#iconCopyright, #infoIcon {
+  width               : 60px;
+  height              : 60px;
+  background-repeat   : no-repeat;
+  background-position : center;
+  }
+
+h1 {
+  font-size      : 2em;
+  margin         : 2em 0 0.5em 0;
+  text-transform : uppercase;
+  }
+
+h2 {
+  font-size : 1.5em;
+  margin    : 0.5em 0 2em 0;
+  }
+
+#about p {
+  padding     : 0.5em 0;
+  font-family : Open Sans;
+  font-family : 'Open Sans', Arial, sans-serif;
+  font-size   : 0.8em;
+  }
+
+.impressum {
+  font-style : italic;
+  }
+
+.impressum span {
+  font-style  : normal;
+  font-size   : 0.8em;
+  font-weight : bold;
+  }
+
+div#about p#home {
+  margin : 3em 2em 4em 2em;
+  }
+
+div#about p#home a {
+  color                 : #fff;
+  font-family           : 'Patrick Hand', cursive;
+  font-size             : 1.5em;
+  padding               : 0.5em;
+  background-color      : #734E81;
+  text-decoration       : none;
+  -moz-border-radius    : 5px;
+  -webkit-border-radius : 5px;
+  border-radius         : 5px;
+  }
+
+div#about p#home a:active{
+  background-color      : #452f52;
+  }

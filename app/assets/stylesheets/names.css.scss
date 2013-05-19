@@ -1,0 +1,544 @@
+/* @group html5 reset */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
+  border         : 0;
+  outline        : 0;
+  font-size      : 100%;
+  vertical-align : baseline;
+  background     : transparent;
+  margin         : 0;
+  padding        : 0;
+  }
+
+body {
+  line-height : 1;
+  }
+
+article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  display : block;
+  }
+
+ol, ul {
+  list-style : none;
+  }
+
+blockquote, q {
+  quotes : none;
+  }
+
+blockquote {
+  &:before, &:after {
+	content : none;
+	}
+  }
+
+q {
+  &:before, &:after {
+	content : none;
+	}
+  }
+
+a {
+  border         : 0;
+  font-size      : 100%;
+  vertical-align : baseline;
+  background     : transparent;
+  margin         : 0;
+  padding        : 0;
+  }
+
+ins {
+  background-color : #ff9;
+  color            : #000;
+  text-decoration  : none;
+  }
+
+mark {
+  background-color : #ff9;
+  color            : #000;
+  font-style       : italic;
+  font-weight      : 700;
+  }
+
+del {
+  text-decoration : line-through;
+  }
+
+abbr[title], dfn[title] {
+  border-bottom : 1px dotted #000;
+  cursor        : help;
+  }
+
+table {
+  border-collapse : collapse;
+  border-spacing  : 0;
+  }
+
+hr {
+  height     : 1px;
+  border     : 0;
+  border-top : 1px solid #ccc;
+  display    : none;
+  margin     : 1em 0;
+  padding    : 0;
+  }
+
+input, select {
+  vertical-align : middle;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight : 400;
+  font-size   : 100%;
+  }
+
+q {
+  &:before {
+	content : "\201E";
+	}
+  &:after {
+	content : "\201C";
+	}
+  }
+
+.unsichtbar, .nurprint {
+  position : absolute;
+  width    : 1px;
+  top      : -1000px;
+  left     : -1000px;
+  }
+
+.group:after {
+  visibility : hidden;
+  display    : block;
+  font-size  : 0;
+  content    : ".";
+  clear      : both;
+  height     : 0;
+  }
+
+* html .group {
+  height : 1%;
+  }
+
+:first-child + html .group {
+  min-height : 1px;
+  }
+
+/* @end */
+
+body {
+  font-family : 'Patrick Hand', cursive;
+  font-size   : 18px;
+  }
+
+div#wrap {
+  width  : 980px;
+  margin : 0 auto;
+  }
+
+h1 {
+  font-size      : 2em;
+  margin         : 2em 0 0.5em 0;
+  text-transform : uppercase;
+  }
+
+h2 {
+  font-size : 1.5em;
+  margin    : 0.5em 0 2em 0;
+  }
+
+a {
+  &#geschlecht, &#anzahl, &#buchstabe, &#jahr {
+	margin-right : 10px;
+	}
+  &#weiblich, &#maennlich {
+	margin-right : 5px;
+	}
+  }
+
+div {
+  &.clear_line {
+	clear             : both;
+	margin            : 20px 0px 10px 0px;
+	height            : 20px;
+	background-repeat : repeat-x;
+	z-index           : 1;
+	}
+  &#filter {
+	white-space : nowrap;
+	width       : 100%;
+	}
+  &#geschlecht {
+	float    : left;
+	width    : 322px;
+	overflow : hidden;
+	}
+  &#anzahl, &#buchstabe, &#jahr {
+	float : left;
+	width : 319px;
+	}
+  &#geschlecht, &#anzahl, &#jahr {
+	margin-right : 10px;
+	}
+  &#weiblich, &#maennlich {
+	margin-right : 5px;
+	}
+  &.container {
+	padding               : 40px 20px;
+	-moz-border-radius    : 5px;
+	-webkit-border-radius : 5px;
+	border-radius         : 5px;
+	z                     : 2;
+	}
+  &#geschlecht div.container {
+	height  : 110px;
+	padding : 0px;
+	}
+
+  }
+
+input[type=radio] {
+  display : none; /* comment out to display all radio buttons */
+  }
+
+#weiblich {
+  display                 : block;
+  width                   : 100px;
+  height                  : 100px;
+  -moz-border-radius      : 5px;
+  -webkit-border-radius   : 5px;
+  border-radius           : 5px;
+  float                   : left;
+  background              : #E43724;
+  background-repeat       : no-repeat;
+  background-position     : center;
+  border                  : 2px solid rgb(228, 55, 36);
+  border                  : 2px solid rgba(1, 1, 1, .2);
+  -webkit-background-clip : padding-box;
+  background-clip         : padding-box;
+  opacity                 : 0.8;
+  }
+
+#maennlich {
+  display                 : block;
+  width                   : 100px;
+  height                  : 100px;
+  -moz-border-radius      : 5px;
+  -webkit-border-radius   : 5px;
+  border-radius           : 5px;
+  float                   : left;
+  background              : #1A8AF1;
+  background-repeat       : no-repeat;
+  background-position     : center;
+  border                  : 2px solid rgb(26, 138, 241);
+  border                  : 2px solid rgba(1, 1, 1, .2);
+  -webkit-background-clip : padding-box;
+  background-clip         : padding-box;
+  opacity                 : 0.8;
+  }
+
+#ka {
+  display                 : block;
+  width                   : 100px;
+  height                  : 100px;
+  -moz-border-radius      : 5px;
+  -webkit-border-radius   : 5px;
+  border-radius           : 5px;
+  float                   : left;
+  background              : #f2cb05;
+  background-repeat       : no-repeat;
+  background-position     : center;
+  border                  : 2px solid rgb(242, 203, 5);
+  border                  : 2px solid rgba(1, 1, 1, .2);
+  -webkit-background-clip : padding-box;
+  background-clip         : padding-box;
+  opacity                 : 0.8;
+  }
+
+#maennlich.sel {
+  background          : #1A8AF1 no-repeat;
+  background-position : center;
+  color               : #fff;
+  opacity             : 1;
+  }
+
+#weiblich.sel {
+  background          : #E43724 no-repeat;
+  background-position : center;
+  color               : #fff;
+  opacity             : 1;
+  }
+
+#ka.sel {
+  background          : #F2CB05 no-repeat;
+  background-position : center;
+  color               : #fff;
+  opacity             : 1;
+  }
+
+div {
+  &#anzahl div.container {
+	background-color : #8FBF26;
+	height           : 20px;
+	z                : 2;
+	}
+  &#buchstabe div.container {
+	background-color : #EA7420;
+	height           : 20px;
+	z                : 2;
+	margin-right:0px;
+	}
+  &#go {
+	width    : 0px;
+	visibility			: hidden;
+	overflow : hidden;
+	div.container {
+	  width                 : 100px;
+	  height                : 100px;
+	  -moz-border-radius    : 50px;
+	  -webkit-border-radius : 50px;
+	  border-radius         : 50px;
+	  background-color      : #E43724;
+	  background-repeat     : no-repeat;
+	  background-position   : center;
+	  padding               : 0px;
+	  }
+	div.container:active {
+	  width         : 95px;
+	  height        : 95px;
+	  margin-bottom : 5px;
+	  margin-left   : 2.5px;
+	  background    : #7f2016 no-repeat;
+	  }
+	&#go input {
+	  width       : 80px;
+	  height      : 80px;
+	  margin-top  : 10px;
+	  margin-left : 10px;
+	  }
+	}
+  }
+
+div#filter h3, section#time h3, div#zufall h3, {
+  margin-bottom : 8px;
+  }
+
+section#time {
+  div.container {
+	background-color : #F2CB05;
+	height           : 20px;
+	}
+  p, form {
+	float : left;
+	}
+  }
+
+div#main {
+  clear  : both;
+  margin : 1em 0;
+  width  : 100%;
+  }
+
+#anzahl {
+  p, form {
+	float : left;
+	}
+  }
+
+div#zufall {
+  float      : left;
+  margin-top : 50px;
+  div.container {
+	float                 : left;
+	position              : relative;
+	width                 : 150px;
+	height                : 150px;
+	-moz-border-radius    : 75px;
+	-webkit-border-radius : 75px;
+	border-radius         : 75px;
+	background-color      : #734E81;
+	background-repeat     : no-repeat;
+	background-position   : center;
+	padding               : 0px;
+	margin-left           : -15px;
+	}
+  div.container:active {
+	width        : 145px;
+	height       : 145px;
+	background   : #3c2449 no-repeat;
+	margin-top   : 5px;
+	margin-right : 5px;
+	}
+
+  &#zufall input {
+	width       : 100px;
+	height      : 100px;
+	margin-top  : 23px;
+	margin-left : 23px;
+	}
+
+  }
+
+div#infocontainer {
+  margin-top    : 1%;
+  margin-bottom : 5%;
+  margin-left   : 3%;
+  width         : 35%;
+  float         : left;
+  height        : 400px;
+  overflow      : auto;
+
+  }
+
+#logoVienname {
+  background-repeat   : no-repeat;
+  background-position : center;
+  float               : left;
+  height              : 300px;
+  width               : 100%;
+
+  }
+
+#infoheader {
+  text-align : center;
+  }
+
+div#chart img {
+  margin-top  : 5%;
+  margin-left : 20px;
+  }
+
+div#info {
+  margin-top   : 5%;
+  font-size    : 12px;
+  font-family  : arial;
+  padding      : 2%;
+  border-style : solid;
+  border-width : 27px;
+  }
+
+section {
+  &#graph {
+	float       : left;
+	margin-left : 30px;
+	h3 {
+	  float       : left;
+	  margin-left : 30px;
+	  font-size   : 1.5em;
+	  }
+	}
+  &#time {
+	float : right;
+	}
+  }
+
+.container p {
+  margin : 3px 3px 0 5px;
+  }
+
+div#anzahl div.container p {
+  color : #fff;
+  }
+
+ul#export li {
+  float           : left;
+  list-style-type : none;
+  padding         : 10px;
+  }
+
+div.float {
+  float : left;
+  }
+
+div.floatRight {
+  float : right;
+  }
+
+footer {
+  clear : both;
+  }
+
+#amount {
+  text-align  : center;
+  margin-left : 25%;
+  margin-top  : -8%;
+  }
+
+#buchstabenAnzahl {
+  margin-top  : -8%;
+  margin-left : 25%;
+  text-align  : center;
+  }
+
+#slider-range-buchstabe, #slider-range {
+  margin-top : 10%;
+  cursor     : pointer;
+  & > * {
+	cursor : pointer;
+	}
+  }
+  
+#temp {
+	clear:both;
+}
+
+#temp > * {
+  float                 : left;
+  margin-right          : 1.444%;
+  margin-bottom         : 1.5%;
+  font-size             : 1.5em;
+  text-align            : center;
+  -moz-border-radius    : 5px;
+  -webkit-border-radius : 5px;
+  border-radius         : 5px;
+  text-decoration       : none;
+  background-color      : #000000;
+  width                 : 2.4%;
+  color                 : #fff;
+  }
+
+#ueberschrift {
+	clear:both;
+  margin-top : 1.7%;
+  margin-bot : 8px;
+  }
+
+#A, #B, #C, #D, #E, #F, #G, #H, #I, #J, #K, #L, #M, #N, #O, #P, #Q, #R, #S, #T, #U, #V, #W, #X, #Y, #Z, #OE {
+  &.sel {
+	background          : #1A8AF1 no-repeat;
+	background-position : center;
+	color               : #fff;
+	}
+  }
+
+#myClearLine {
+  margin-bottom : 20px;
+  }
+
+#teilen > #share > li > a {
+  cursor : pointer;
+  }
+
+#infoIconIndex {
+  width               : 45px;
+  height              : 45px;
+  margin-top          : 5px;
+  background-repeat   : no-repeat;
+  background-position : center;
+  }
+
+#shareFacebook, #shareTwitter, #shareGoogle, #sharePinterest {
+  width               : 25px;
+  height              : 25px;
+  background-position : center;
+  background-repeat   : no-repeat;
+  &:hover {
+	cursor : pointer;
+	}
+  }
+
+#wikipedia {
+  margin-top : 20px;
+  margin-bot : -10px;
+  }

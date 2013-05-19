@@ -1,0 +1,13 @@
+
+<script type="text/javascript">
+    data = jQuery.parseJSON('<%= raw @names.to_json %>');
+    $('#infoheader').empty();
+    if(data=='' || data == undefined) {
+    	$('#chart').prepend('<img id="error" src="<%= asset_path("error.png") %>" />');
+    }
+    else {
+        draw(data);
+    }
+</script>
+
+

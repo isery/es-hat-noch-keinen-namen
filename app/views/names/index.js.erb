@@ -1,0 +1,7 @@
+var title = "Vornamen mit <%=params[:start_letter]%>";
+var url = "?category=<%=params[:category]%>&lower_count=<%=params[:lower_count]%>&upper_count=<%=params[:upper_count]%>&start_letter=<%=params[:start_letter]%>&start_year=<%=params[:start_year]%>&end_year=<%=params[:end_year]%>";
+History.pushState(null, title, url);
+$('#chart').empty();
+$('#info').empty();
+$('#info').css('border','none');
+$('#chart').append('<%= j render :partial => "/shared/chart"%>');

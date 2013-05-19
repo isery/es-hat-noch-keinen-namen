@@ -1,0 +1,145 @@
+<div id=wrap>
+
+  <header>
+    <h1>Es hat noch keinen Namen...</h1>
+
+    <h2>Lass dich von den beliebtesten Namen Wiens inspirieren!</h2>
+  </header>
+
+  <div id=filter>
+    <%= form_tag('/', :controller => "names", :action => "index", :method => :get, :id => "filterForm", :remote => true) do -%>
+        <div id=geschlecht>
+          <h3>Welches Geschlecht?</h3>
+
+          <div class=container>
+            <%= radio_button_tag 'category', "1", params[:category]=="1", :class => "maennlich" %>
+            <%= radio_button_tag 'category', "2", params[:category]=="2", :class => "weiblich" %>
+            <%= radio_button_tag 'category', "3", params[:category]=="3" || params[:category].nil?, :class => "ka" %>
+            <section id="catlinks">
+              <a href="#" class="c" id="maennlich"></a>
+              <a href="#" class="c" id="weiblich"></a>
+              <a href="#" class="c" id="ka"></a>
+            </section>
+          </div>
+        </div>
+
+        <div id=anzahl>
+
+          <h3>Wieviele Buchstaben?</h3>
+
+          <div class=container>
+            <div id=buchstabe>
+              <label for="buchstabenAnzahl"></label>
+              <input type="text" id="buchstabenAnzahl" disabled/>
+            </div>
+            <div id=slider-range-buchstabe></div>
+            <%= hidden_field_tag 'lower_count', params[:lower_count] || 3 %>
+            <%= hidden_field_tag 'upper_count', params[:upper_count] || 10 %>
+          </div>
+        </div>
+
+        <div id=buchstabe>
+          <h3>Welcher Jahreszeitraum?</h3>
+
+          <div class=container>
+            <div id=jahr>
+              <label for="amount"></label>
+              <input type="text" id="amount" disabled/>
+            </div>
+            <div id=slider-range></div>
+            <%= hidden_field_tag 'start_year', params[:start_year] || 2000 %>
+            <%= hidden_field_tag 'end_year', params[:end_year] || 2011 %>
+          </div>
+        </div>
+
+        <div id=go>
+          <h3>go!</h3>
+
+          <div class=container>
+            <%= image_submit_tag(asset_path("go.png"), :id => 'submit1') %>
+          </div>
+        </div> 
+
+		<div id=ueberschrift>
+          <h3>Welcher Anfangsbuchstabe?</h3>
+        </div>
+
+        <div id=temp>
+        
+          <%= radio_button_tag 'start_letter', "A", params[:start_letter]=="A" || params[:start_letter].nil?, :class => "A" %>
+          <% ("A".."Z").each do |letter| %>
+              <a href="#" class="l" id="<%= letter %>"><%= letter %></a>
+              <% next if letter=="A" %>
+              <%= radio_button_tag 'start_letter', letter, params[:start_letter]==letter, :class => letter %>
+          <% end %>
+        </div>
+        <div id="myClearLine" class="clear_line"></div>
+
+        </div><!--end filter-->
+
+    <% end -%>
+    <div id=main>
+      <%= form_tag('/', :controller => "names", :action => "index", :method => :get, :id => "zufallsForm") do -%>
+          <% lower_count = 3+rand(3) %>
+          <% start_year = 2000+rand(5) %>
+          <%= hidden_field_tag 'category', 1+rand(3) %>
+          <%= hidden_field_tag 'lower_count', lower_count %>
+          <%= hidden_field_tag 'upper_count', lower_count+rand(11-lower_count) %>
+          <%= hidden_field_tag 'start_letter', (65+rand(26)).chr %>
+          <%= hidden_field_tag 'start_year', start_year %>
+          <%= hidden_field_tag 'end_year', start_year+rand(2012-start_year) %>
+          <div id=zufall>
+            <h3>Zufallsgenerator</h3>
+
+            <div class=container>
+              <%= image_submit_tag(asset_path("zufall.png"), :id => 'submit2') %>
+            </div>
+          </div>
+      <% end -%>
+      <section id=graph>
+        <h3>Folgende Namen wurden gefunden</h3>
+
+        <div id="chart">
+        </div>
+      </section>
+      <div id=infoheader></div>
+      <div id=infocontainer>
+      </div>
+
+      <div class="clear_line"></div>
+
+    </div>
+    <!--end main-->
+    <footer>
+      <ul id=export>
+        <ul id=teilen>
+          <div class=float id=share>
+            <h3>Teile dein Ergebnis,</h3>
+            <a target="_blank" id="http://www.facebook.com/sharer.php?u=" title="Share Facebook">
+              <li id="shareFacebook"></li>
+            </a>
+            <a target="_blank" id="https://twitter.com/share?url=" title="Share Twitter">
+              <li id="shareTwitter">
+              </li>
+            </a>
+            <a target="_blank" id="https://plus.google.com/share?url=" title="Share Google">
+              <li id="shareGoogle">
+              </li>
+            </a>
+            <a target="_blank" id="http://pinterest.com/pin/create/button/?url=" class="http://multimediatechnology.at/~fhs33715/qpt2a/logo_pinterest11.png" title="Share Pinterest">
+              <li id="sharePinterest">
+              </li>
+            </a>
+          </div>
+          <div class=floatRight id="download">
+            <h3>...mehr Information zum Projekt!</h3>
+            <%= link_to(static_about_path) do %>
+                <div id="infoIconIndex">
+                </div>
+            <% end %>
+          </div>
+        </ul>
+      </ul>
+    </footer>
+
+    </div>
